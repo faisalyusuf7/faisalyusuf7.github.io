@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faisal Yusuf Ughratdar | Mechanical Engineer</title>
+  <meta name="description" content="Portfolio of Faisal Yusuf Ughratdar — Mechanical Engineering senior at UIC specialising in robotics, CAD, and mechatronics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- navbar -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">FY<span class="logo-dot">.</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about"     class="nav-link">About</a></li>
+      <li><a href="#skills"    class="nav-link">Skills</a></li>
+      <li><a href="#projects"  class="nav-link">Projects</a></li>
+      <li><a href="#experience"class="nav-link">Experience</a></li>
+      <li><a href="#media"     class="nav-link">Gallery</a></li>
+      <li><a href="#contact"   class="nav-link">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- hero -->
+  <section id="hero">
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Decorative gears -->
+    <div class="gear-wrap">
+      <svg class="gear gear-lg gear-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <use href="#gear-shape"/>
+      </svg>
+      <svg class="gear gear-md gear-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <use href="#gear-shape"/>
+      </svg>
+      <svg class="gear gear-sm gear-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <use href="#gear-shape"/>
+      </svg>
+    </div>
+
+    <!-- Reusable gear SVG definition -->
+    <svg style="display:none">
+      <defs>
+        <symbol id="gear-shape" viewBox="0 0 100 100">
+          <path d="M43.3 5.7L40.5 5l-2.5 7.6a29.5 29.5 0 00-7.4 3.1l-7.3-3.2-2 1.9 3.2 7.3a29.5 29.5 0 00-4.4 6.2l-8-1.4-1 2.7 6.6 5.1a29.5 29.5 0 00-.7 7.7l-7.6 3.2.3 2.8 8.1 1.6a29.5 29.5 0 003.4 7l-4.5 6.8 1.7 2.3 7.7-2.3a29.5 29.5 0 006 4.8L32 86.7l2.5 1.3 5.2-6.3A29.5 29.5 0 0047 82.9l1.8 8 2.8-.3 1.8-8.1a29.5 29.5 0 007-3.5l6.7 4.6 2.3-1.7-2.3-7.8a29.5 29.5 0 004.7-6.1l8 1.3 1-2.7-5.3-6.3a29.5 29.5 0 001.5-7.6l7.6-3.2-.3-2.8-8-1.6a29.5 29.5 0 00-3.4-7l4.5-6.8-1.7-2.3-7.7 2.3a29.5 29.5 0 00-6-4.8l1.3-8.1-2.5-1.3-5.2 6.3A29.5 29.5 0 0053 13.1L51.2 5h-2.8L46.6 13a29.5 29.5 0 00-3.3 1.9l.7-7.5-.7-1.7zM50 32a18 18 0 110 36A18 18 0 0150 32z" fill="currentColor" fill-rule="evenodd"/>
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">
+        <span class="eyebrow-bar"></span>Mechanical Engineer
+      </p>
+      <h1 class="hero-name">
+        <span class="name-first">Faisal Yusuf</span>
+        <span class="name-last">Ughratdar</span>
+      </h1>
+      <div class="hero-roles">
+        <span id="role-text"></span><span class="type-cursor">|</span>
+      </div>
+      <p class="hero-sub">
+        B.S. Mechanical Engineering &nbsp;·&nbsp; University of Illinois Chicago &nbsp;·&nbsp; GPA 3.6 &nbsp;·&nbsp; Dean's List
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">
+          <i class="fas fa-rocket"></i> View Projects
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <i class="fas fa-paper-plane"></i> Get In Touch
+        </a>
+      </div>
+      <div class="hero-socials">
+        <a href="mailto:fughra2@uic.edu" title="Email" class="social-link">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mechengineerfaisal" target="_blank" rel="noopener" title="LinkedIn" class="social-link">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/" target="_blank" rel="noopener" title="GitHub" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-down" aria-label="Scroll down">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
+    </a>
+  </section>
+
+  <!-- about -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">01 / About</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <!-- Photo -->
+        <div class="about-photo reveal">
+          <div class="photo-wrapper">
+            <!-- replace the div below with <img src="assets/images/me.jpg" alt="Faisal"> -->
+            <div class="photo-placeholder">
+              <i class="fas fa-user"></i>
+              <p>Place your photo here</p>
+              <small>assets/images/me.jpg</small>
+            </div>
+            <div class="photo-glow"></div>
+          </div>
+        </div>
+        <!-- Text -->
+        <div class="about-text reveal">
+          <p class="about-intro">I'm a Mechanical Engineering senior at the <strong>University of Illinois Chicago</strong>, graduating May 2026 with a 3.6 GPA. I bridge the gap between theoretical engineering and real‑world implementation — designing and building mechatronic systems from concept to prototype.</p>
+          <p>Currently leading the <em>Pentagon Robot</em> senior design project: an autonomous five‑bar parallel planar robot for high‑speed pick‑and‑place operations. My work spans inverse kinematics, SolidWorks simulation, embedded control, and fabrication — all under a strict $350 budget.</p>
+          <div class="about-stats">
+            <div class="stat-box">
+              <span class="stat-num" data-target="3.6">0</span>
+              <span class="stat-label">GPA</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" data-target="500" data-integer>0</span>
+              <span class="stat-label">Students Reached</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" data-target="200" data-integer>0</span>
+              <span class="stat-label">Devices Deployed</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-num" data-target="0.5">0</span>
+              <span class="stat-label">mm Accuracy</span>
+            </div>
+          </div>
+          <!-- Education card -->
+          <div class="edu-card">
+            <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+              <h4>University of Illinois Chicago</h4>
+              <p>B.S. Mechanical Engineering &nbsp;·&nbsp; GPA: 3.6 / 4.0</p>
+              <p class="edu-date"><i class="far fa-calendar-alt"></i> Expected May 2026 &nbsp;·&nbsp; <span class="badge">Dean's List</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- skills -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">02 / Skills</span>
+        <h2 class="section-title">Technical Skills</h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <div class="skill-card-icon"><i class="fas fa-drafting-compass"></i></div>
+          <h3>CAD &amp; Simulation</h3>
+          <ul class="skill-tags">
+            <li>SolidWorks</li><li>AutoCAD</li><li>ANSYS</li><li>Unreal Engine</li>
+            <li>Motion Simulation</li><li>Assembly Modelling</li>
+          </ul>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-card-icon"><i class="fas fa-microchip"></i></div>
+          <h3>Programming &amp; Controls</h3>
+          <ul class="skill-tags">
+            <li>Python</li><li>MATLAB</li><li>C++</li><li>Arduino</li>
+            <li>Raspberry Pi</li><li>ROS 2</li>
+          </ul>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-card-icon"><i class="fas fa-industry"></i></div>
+          <h3>Manufacturing</h3>
+          <ul class="skill-tags">
+            <li>CNC Machining</li><li>FDM 3D Printing</li><li>GD&amp;T</li>
+            <li>DFM Principles</li><li>Material Selection</li><li>Process Optimisation</li>
+          </ul>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Engineering Analysis</h3>
+          <ul class="skill-tags">
+            <li>FEA</li><li>CFD</li><li>Structural Analysis</li>
+            <li>Inverse Kinematics</li><li>Thermal Analysis</li><li>Statistical Process Control</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">03 / Projects</span>
+        <h2 class="section-title">Engineering Projects</h2>
+      </div>
+      <div class="projects-grid">
+
+        <!-- FEATURED: Pentagon Robot -->
+        <div class="project-card project-featured reveal">
+          <div class="project-badge"><i class="fas fa-star"></i> Featured Project</div>
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-robot"></i></div>
+            <div>
+              <h3>Pentagon Robot</h3>
+              <p class="project-meta">Senior Design Project &nbsp;·&nbsp; Aug 2025 – Present</p>
+            </div>
+          </div>
+          <p class="project-desc">An autonomous five-bar parallel planar robot designed for high-speed pick-and-place operations. Built to demonstrate advanced kinematic principles in an accessible educational platform.</p>
+          <div class="project-highlights">
+            <div class="ph-item"><i class="fas fa-stopwatch"></i><span>≤ 5 sec cycle time</span></div>
+            <div class="ph-item"><i class="fas fa-crosshairs"></i><span>±0.5 mm accuracy</span></div>
+            <div class="ph-item"><i class="fas fa-dollar-sign"></i><span>$327.80 / $350 budget</span></div>
+            <div class="ph-item"><i class="fas fa-cogs"></i><span>Dual NEMA 17 stepper motors</span></div>
+          </div>
+          <ul class="project-bullets">
+            <li>Led mechanical design and controls integration using a closed-loop five-bar linkage driven by dual base-mounted NEMA 17 stepper motors in a stacked direct-drive configuration</li>
+            <li>Applied Model-Based Design (MBD) in SolidWorks for full assembly, motion simulation, and workspace validation to eliminate link interference</li>
+            <li>Implemented inverse kinematics and randomised path planning on a Raspberry Pi 4; real-time motor actuation via Arduino UNO R3</li>
+            <li>Integrated suction-based end-effector with pressure-sensor feedback for reliable grasp confirmation</li>
+          </ul>
+          <div class="project-tech">
+            <span>SolidWorks</span><span>Arduino</span><span>Raspberry Pi</span>
+            <span>Python</span><span>ANSYS</span><span>Five-Bar Kinematics</span>
+          </div>
+        </div>
+
+        <!-- Placeholder project 2 -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-cog"></i></div>
+            <div>
+              <h3>Your Project Title</h3>
+              <p class="project-meta">Course / Date</p>
+            </div>
+          </div>
+          <p class="project-desc">Add a project description here. Replace this placeholder with your real project by editing the <code>index.html</code> file.</p>
+          <div class="project-tech">
+            <span>SolidWorks</span><span>MATLAB</span>
+          </div>
+        </div>
+
+        <!-- Placeholder project 3 -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-bolt"></i></div>
+            <div>
+              <h3>Your Project Title</h3>
+              <p class="project-meta">Course / Date</p>
+            </div>
+          </div>
+          <p class="project-desc">Add another project here. Paste your description, tools used, and any notable results.</p>
+          <div class="project-tech">
+            <span>Python</span><span>FEA</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- experience -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">04 / Experience</span>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="tl-marker">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-icon"><i class="fas fa-laptop-code"></i></div>
+              <div>
+                <h3>Computer Specialist</h3>
+                <p class="tl-org">University of Illinois Chicago — College of Nursing</p>
+              </div>
+              <span class="tl-date">Aug 2023 – Present</span>
+            </div>
+            <ul class="tl-bullets">
+              <li>Deployed and configured 200+ laptops and desktops using Microsoft Intune, ensuring security compliance</li>
+              <li>Provided Tier 1 &amp; 2 technical support for 100+ faculty and staff with a <strong>95% on-time resolution rate</strong></li>
+              <li>Managed help-desk ticketing, software updates, and patch management to minimise downtime</li>
+              <li>Reduced critical failures by <strong>20%</strong> through proactive maintenance workflows and system monitoring</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="tl-marker">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-icon"><i class="fas fa-flask"></i></div>
+              <div>
+                <h3>Thermodynamics Laboratory Assistant</h3>
+                <p class="tl-org">University of Illinois Chicago — Dept. of Mechanical Engineering</p>
+              </div>
+              <span class="tl-date">Fall 2024</span>
+            </div>
+            <ul class="tl-bullets">
+              <li>Prepared and supported experiments on heat exchangers, combustion systems, and thermodynamic cycle analysis</li>
+              <li>Guided students through experimental procedures, data collection, and uncertainty analysis</li>
+              <li>Validated experimental results via statistical comparison against analytical models</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="tl-marker">
+            <div class="tl-dot"></div>
+          </div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div class="tl-icon"><i class="fas fa-users"></i></div>
+              <div>
+                <h3>Student Ambassador (Volunteer)</h3>
+                <p class="tl-org">UIC Engineering Outreach</p>
+              </div>
+              <span class="tl-date">Fall 2024</span>
+            </div>
+            <ul class="tl-bullets">
+              <li>Led hands-on engineering demonstrations for <strong>500+ prospective students</strong> and families at campus events</li>
+              <li>Coordinated event logistics and volunteer teams to advance STEM outreach initiatives</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- gallery -->
+  <section id="media" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">05 / Gallery</span>
+        <h2 class="section-title">Project Gallery</h2>
+        <p class="section-sub">Photos and videos from my projects &amp; builds</p>
+      </div>
+
+      <!-- replace media-placeholder divs with <img> or <video> tags once you have files -->
+      <div class="media-grid">
+
+        <div class="media-item media-item-lg reveal">
+          <div class="media-placeholder">
+            <i class="fas fa-image"></i>
+            <p>Add your main project photo</p>
+            <small>assets/images/photo.jpg</small>
+          </div>
+          <div class="media-caption">Pentagon Robot — Full Assembly</div>
+        </div>
+
+        <div class="media-item reveal">
+          <div class="media-placeholder">
+            <i class="fas fa-video"></i>
+            <p>Add a demo video</p>
+            <small>assets/videos/demo.mp4</small>
+          </div>
+          <div class="media-caption">Pick &amp; Place Demo</div>
+        </div>
+
+        <div class="media-item reveal">
+          <div class="media-placeholder">
+            <i class="fas fa-image"></i>
+            <p>Add a photo</p>
+            <small>assets/images/cad.jpg</small>
+          </div>
+          <div class="media-caption">SolidWorks CAD Model</div>
+        </div>
+
+        <div class="media-item reveal">
+          <div class="media-placeholder">
+            <i class="fas fa-image"></i>
+            <p>Add a photo</p>
+            <small>assets/images/fab.jpg</small>
+          </div>
+          <div class="media-caption">Fabrication Process</div>
+        </div>
+
+        <div class="media-item reveal">
+          <div class="media-placeholder">
+            <i class="fas fa-video"></i>
+            <p>Add a video</p>
+            <small>assets/videos/sim.mp4</small>
+          </div>
+          <div class="media-caption">Motion Simulation</div>
+        </div>
+
+        <div class="media-item reveal">
+          <div class="media-placeholder">
+            <i class="fas fa-image"></i>
+            <p>Add a photo</p>
+            <small>assets/images/electronics.jpg</small>
+          </div>
+          <div class="media-caption">Electronics &amp; Wiring</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">06 / Contact</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-sub">Open to opportunities, collaborations, and interesting conversations.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <h4>Email</h4>
+          <a href="mailto:fughra2@uic.edu">fughra2@uic.edu</a>
+        </div>
+        <div class="contact-card reveal">
+          <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+          <h4>LinkedIn</h4>
+          <a href="https://www.linkedin.com/in/mechengineerfaisal" target="_blank" rel="noopener">linkedin.com/in/mechengineerfaisal</a>
+        </div>
+        <div class="contact-card reveal">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h4>Location</h4>
+          <p>Chicago, IL</p>
+        </div>
+        <div class="contact-card reveal">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <h4>Phone</h4>
+          <a href="tel:7733027789">(773) 302‑7789</a>
+        </div>
+      </div>
+
+      <div class="cta-block reveal">
+        <p>Let's build something extraordinary together.</p>
+        <a href="mailto:fughra2@uic.edu" class="btn-primary">
+          <i class="fas fa-paper-plane"></i> Send a Message
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#hero" class="footer-logo">FY<span>.</span></a>
+      <p class="footer-copy">© 2026 Faisal Yusuf Ughratdar &nbsp;·&nbsp; Mechanical Engineering</p>
+      <div class="footer-links">
+        <a href="mailto:fughra2@uic.edu"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mechengineerfaisal" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
