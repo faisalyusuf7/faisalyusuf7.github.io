@@ -295,33 +295,47 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
 // lightbox
 (function initLightbox() {
-  // Build lightbox DOM
   const lb = document.createElement('div');
   lb.id = 'lightbox';
-  lb.innerHTML = `<button id="lightbox-close" aria-label="Close"><i class="fas fa-times"></i></button>
-    <div id="lightbox-content"></div>`;
+  lb.innerHTML = `
+    <button id="lightbox-close" aria-label="Close"><i class="fas fa-times"></i></button>
+    <button id="lightbox-prev"  aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+    <div id="lightbox-content"></div>
+    <button id="lightbox-next"  aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+    <div id="lightbox-counter"></div>`;
   document.body.appendChild(lb);
 
   const lbContent = lb.querySelector('#lightbox-content');
   const lbClose   = lb.querySelector('#lightbox-close');
+  const lbPrev    = lb.querySelector('#lightbox-prev');
+  const lbNext    = lb.querySelector('#lightbox-next');
+  const lbCounter = lb.querySelector('#lightbox-counter');
 
-  function open(item) {
-    const img   = item.querySelector('img');
-    const video = item.querySelector('video');
+  let gallery = [];
+  let idx = 0;
+
+  function showAt(i) {
+    idx = ((i % gallery.length) + gallery.length) % gallery.length;
     lbContent.innerHTML = '';
-
-    if (img) {
-      const clone = img.cloneNode(true);
+    const el = gallery[idx];
+    if (!el) return;
+    if (el.tagName === 'IMG') {
+      const clone = el.cloneNode(true);
       lbContent.appendChild(clone);
-    } else if (video) {
-      const clone = video.cloneNode(true);
-      clone.controls = true;
-      clone.autoplay = true;
+    } else if (el.tagName === 'VIDEO') {
+      const clone = el.cloneNode(true);
+      clone.controls = true; clone.autoplay = true;
       lbContent.appendChild(clone);
-    } else {
-      return; // placeholder — nothing to show
     }
+    const multi = gallery.length > 1;
+    lbPrev.style.display = multi ? '' : 'none';
+    lbNext.style.display = multi ? '' : 'none';
+    lbCounter.textContent = multi ? `${idx + 1} / ${gallery.length}` : '';
+  }
 
+  function openGallery(images, startIdx) {
+    gallery = images;
+    showAt(startIdx);
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -329,23 +343,49 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   function close() {
     lb.classList.remove('open');
     document.body.style.overflow = '';
-    // Pause any video
     const video = lbContent.querySelector('video');
     if (video) video.pause();
     lbContent.innerHTML = '';
+    gallery = []; idx = 0;
   }
 
-  // Attach to media items (images/videos only, not placeholders)
   document.addEventListener('click', e => {
+    // project thumbnail click
+    const thumb = e.target.closest('.proj-thumb');
+    if (thumb) {
+      const card = thumb.closest('.project-card');
+      const thumbs = Array.from(card.querySelectorAll('.proj-thumb'));
+      openGallery(thumbs, thumbs.indexOf(thumb));
+      return;
+    }
+    // view-more button
+    const btn = e.target.closest('.view-more-btn');
+    if (btn) {
+      const card = btn.closest('.project-card');
+      const thumbs = Array.from(card.querySelectorAll('.proj-thumb'));
+      openGallery(thumbs, 0);
+      return;
+    }
+    // media-item in gallery section
     const item = e.target.closest('.media-item');
     if (item && !item.querySelector('.media-placeholder')) {
-      open(item);
+      const allItems = Array.from(document.querySelectorAll('.media-item'))
+        .filter(m => !m.querySelector('.media-placeholder'));
+      const mediaEls = allItems.map(m => m.querySelector('img') || m.querySelector('video')).filter(Boolean);
+      openGallery(mediaEls, allItems.indexOf(item));
     }
   });
 
+  lbPrev.addEventListener('click', e => { e.stopPropagation(); showAt(idx - 1); });
+  lbNext.addEventListener('click', e => { e.stopPropagation(); showAt(idx + 1); });
   lbClose.addEventListener('click', close);
   lb.addEventListener('click', e => { if (e.target === lb) close(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft')  showAt(idx - 1);
+    if (e.key === 'ArrowRight') showAt(idx + 1);
+  });
 })();
 
 
